@@ -11,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 
 import styles from '../styles/Username.module.css';
 import extend from '../styles/Profile.module.css';
-// import Skin from './Skin'
 import {  vaccinationOptions,
            supplyOptions,
             bonusOptions,
@@ -58,52 +57,42 @@ export default function Profile() {
     }
   })
 
-  // logout handler function
-  function userLogout(){
-    localStorage.removeItem('token');
-    navigate('/')
-  }
-
   if(isLoading) return <h1 className='text-2xl font-bold'>isLoading</h1>;
   if(serverError) return <h1 className='text-xl text-red-500'>{serverError.message}</h1>
 
   return (
     <div className="container mx-auto">
-
       <Toaster position='top-center' reverseOrder={false}></Toaster>
-
       <div className='overflow-hidden flex justify-center items-center h-screen '>
-        
-       <div class="overflow-auto w-full bg-gray-900 h-screen ">
-        <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12 ">
-        <div class="bg-gray-900 w-full shadow rounded p-8 sm:p-12 -mt-72">
-            <form onSubmit={formik.handleSubmit}>
-                <div class="md:flex items-center mt-8">
-                    <div class="w-full flex flex-col">
-                      
-                    <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
-                               Vaccination
-                     </label>   
-                     <p class="text-white text-xs italic">Do you offer additional vaccination service</p>
-                    
-                      <select {...formik.getFieldProps('vaccination')}
-                              class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
-                                    <option value="" label="choose an option" />
-                                          {vaccinationOptions.map(option => (
-                                            <option key={option.value} value={option.value}>
-                                              {option.label}
-                                            </option>
-                                       ))}
-                            </select>
-                    </div>
-                    
-                 </div>
+        <div className="overflow-auto w-full bg-gray-900 h-screen ">
+          <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12 ">
+            <div className="bg-gray-900 w-full shadow rounded p-8 sm:p-12 -mt-72">
+              <form onSubmit={formik.handleSubmit}>
+                <div className="md:flex items-center mt-8">
+                  <div className="w-full flex flex-col">
+                    <label htmlFor="grid-password" className="block uppercase tracking-wide text-white text-xs font-bold mb-2">
+                      Vaccination
+                    </label>
+                    <p className="text-white text-xs italic">Do you offer additional vaccination service</p>
+                    <select
+                      {...formik.getFieldProps('vaccination')}
+                      className="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full"
+                    >
+                      <option value="" label="choose an option" />
+                      {vaccinationOptions.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
                  <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">   
                      <p class="text-white text-xs italic">If: yes how often?</p>
                     
                      <input {...formik.getFieldProps('repeat')} 
-                          class="appearance-none block w-full bg-gray-800 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-slate-600 focus:border-gray-900 rounded-full" 
+                          class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full" 
                           id="grid-password" type="text" placeholder='add a brief description'/>
                     </div>
                     
@@ -126,7 +115,7 @@ export default function Profile() {
                      <p class="text-white text-xs italic">If no: specify the region</p>
                     
                      <input {...formik.getFieldProps('regions')}  
-                          class="appearance-none block w-full bg-gray-800 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-slate-600 focus:border-gray-900 rounded-full" 
+                          class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full" 
                           id="grid-password" type="text" placeholder='add a brief description'/>
                     </div>
 
@@ -174,7 +163,7 @@ export default function Profile() {
                      <p class="text-white text-xs italic">If: yes how often?</p>
                     
                      <input {...formik.getFieldProps('often')} 
-                          class="appearance-none block w-full bg-gray-800 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-slate-600 focus:border-gray-900 rounded-full" 
+                          class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full" 
                           id="grid-password" type="text" placeholder='add a brief description'/>
                     </div>
                     
@@ -252,7 +241,7 @@ export default function Profile() {
                      <p class="text-white text-xs italic">If: yes how often?</p>
                     
                      <input {...formik.getFieldProps('whichone')} 
-                          class="appearance-none block w-full bg-gray-800 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-slate-600 focus:border-gray-900 rounded-full" 
+                          class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full" 
                           id="grid-password" type="text" placeholder='add a brief description'/>
                     </div>
                     
@@ -330,7 +319,7 @@ export default function Profile() {
                      <p class="text-white text-xs italic">If: yes how often?</p>
                     
                      <input {...formik.getFieldProps('volume')} 
-                          class="appearance-none block w-full bg-gray-800 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-slate-600 focus:border-gray-900 rounded-full" 
+                          class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full" 
                           id="grid-password" type="text" placeholder='add a brief description'/>
                     </div>
                     
@@ -407,7 +396,7 @@ export default function Profile() {
                      <p class="text-white text-xs italic">If: yes how often?</p>
                     
                      <input {...formik.getFieldProps('child')} 
-                          class="appearance-none block w-full bg-gray-800 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-slate-600 focus:border-gray-900 rounded-full" 
+                          class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full" 
                           id="grid-password" type="text" placeholder='add a brief description'/>
                     </div>
                     
@@ -456,7 +445,7 @@ export default function Profile() {
                     </div>
                     
                 </div>
-                  <div class=" md:-mb-90">
+                  <div class="bottom-0 mt-10 flex justify-center">
                 <button className={styles.btn} type='submit'>save questionnaire</button>
                 </div>
             </form>

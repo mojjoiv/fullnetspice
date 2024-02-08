@@ -44,11 +44,9 @@ const Sidebar = () => {
         
         <div className="space-y-3">
             <div className="flex items-center">
-                {/* <h2 className="text-sm  bg-gray-800 text-black"> */}
                 <input {...formik.getFieldProps('email')} 
                   className="text-sm font-light bg-gray-800 text-white"
                   type="text" placeholder='email' />
-                {/* </h2> */}
             </div>
             <div className="flex-1">
                 <ul className="pt-2 pb-4 space-y-1 text-sm">
