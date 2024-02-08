@@ -103,3 +103,4 @@ incase it doesnt work i have provided an alternative  way of connecting to mongo
 
 ### this project has authentication  using jsonwebtoken so make sure u add this middleware after express session in your files and recover password 
 ### if you are not authenticated you will see a blank page with sidebar only 
+### future updates to reset password through email and implement OTP 
