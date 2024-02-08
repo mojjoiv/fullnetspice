@@ -69,27 +69,18 @@ export default function Profile() {
 
   return (
     <div className="container mx-auto">
-      
-      {/* <Navbar /> */}
-      {/* <Sidebar /> */}
+
       <Toaster position='top-center' reverseOrder={false}></Toaster>
-      {/* <div className="name flex w-3/4 gap-10">
-                  <input {...formik.getFieldProps('email')} 
-                  className={`${styles.textbox} ${extend.textbox}`} 
-                  type="text" placeholder='email' />
-                  
-                </div> */}
 
       <div className='overflow-hidden flex justify-center items-center h-screen '>
         
-       <div class="overflow-auto w-full bg-gray-900 h-screen">
-        {/* <div class="bg-gradient-to-b from-blue-800 to-blue-600 h-96"></div> */}
-        <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
+       <div class="overflow-auto w-full bg-gray-900 h-screen ">
+        <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12 ">
         <div class="bg-gray-900 w-full shadow rounded p-8 sm:p-12 -mt-72">
-            {/* <p class="text-3xl font-bold leading-7 text-center text-white">Contact me</p> */}
             <form onSubmit={formik.handleSubmit}>
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
+                      
                     <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
                                Vaccination
                      </label>   
@@ -465,8 +456,9 @@ export default function Profile() {
                     </div>
                     
                 </div>
-
+                  <div class=" md:-mb-90">
                 <button className={styles.btn} type='submit'>save questionnaire</button>
+                </div>
             </form>
         </div>
     </div>
