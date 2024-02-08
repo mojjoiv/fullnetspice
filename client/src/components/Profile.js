@@ -5,8 +5,10 @@ import { profileValidation } from '../helper/validate';
 import convertToBase64 from '../helper/convert';
 import { getFormData } from './formData.js';
 import useFetch from '../hooks/fetch.hook';
-import { updateUser } from '../helper/helper'
-import { useNavigate } from 'react-router-dom'
+import { updateUser } from '../helper/helper';
+import { useNavigate } from 'react-router-dom';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 
 import styles from '../styles/Username.module.css';
 import extend from '../styles/Profile.module.css';
@@ -50,7 +52,7 @@ export default function Profile() {
 
       toast.promise(updatePromise, {
         loading: 'Updating...',
-        success : <b>Update Successfully...!</b>,
+        success : <b>Saved Successfully...!</b>,
         error: <b>Could not Update!</b>
       });
 
@@ -69,294 +71,409 @@ export default function Profile() {
   return (
     <div className="container mx-auto">
       
-
+      {/* <Navbar /> */}
+      {/* <Sidebar /> */}
       <Toaster position='top-center' reverseOrder={false}></Toaster>
-      <div className="name flex w-3/4 gap-10">
+      {/* <div className="name flex w-3/4 gap-10">
                   <input {...formik.getFieldProps('email')} 
                   className={`${styles.textbox} ${extend.textbox}`} 
                   type="text" placeholder='email' />
                   
-                </div>
+                </div> */}
 
-      <div className='flex justify-center items-center h-screen'>
-      
-                {/* sidebar here */}
-        <div className={`${styles.glass} ${extend.glass}`} style={{ width: "45%", paddingTop: '3em'}}>
-
-          <form className='py-1' onSubmit={formik.handleSubmit}>
-             
-              <div className="textbox flex flex-col items-center gap-6">
-
-                          {/*vaccination*/}
-
-                      {/* <span className='py-4 text-sm w-2/3 text-center text-gray-500'>
-                        Do you have complete service in your supply area
-                    </span> */}
-                <div className="name flex w-3/4 gap-10">
-                   <select {...formik.getFieldProps('vaccination')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {vaccinationOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-                </div>
-
-                  <input {...formik.getFieldProps('repeat')} 
-                  className={`${styles.textbox} ${extend.textbox}`} 
-                  type="text" placeholder='add a brief description' />
-
-                  <select {...formik.getFieldProps('supply')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {supplyOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-
-                {/* <span className='py-4 text-sm w-2/3 text-center text-gray-500'>
-                Do you have complete service in your supply area
-               </span> */}
-                  {/* <select {...formik.getFieldProps('supply')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {supplyOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select> */}
-
-                <input {...formik.getFieldProps('regions')} 
-                  className={`${styles.textbox} ${extend.textbox}`} 
-                  type="text" placeholder='if no specify regions' />
+      <div className='flex justify-center items-center h-screen '>
+        
+       <div class="w-full bg-gray-900 h-screen">
+        {/* <div class="bg-gradient-to-b from-blue-800 to-blue-600 h-96"></div> */}
+        <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
+        <div class="bg-gray-900 w-full shadow rounded p-8 sm:p-12 -mt-72">
+            {/* <p class="text-3xl font-bold leading-7 text-center text-white">Contact me</p> */}
+            <form onSubmit={formik.handleSubmit}>
+                <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">
+                    <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
+                               Vaccination
+                     </label>   
+                     <p class="text-white text-xs italic">Do you offer additional vaccination service</p>
                     
-                    {/* not working */}
-                <select {...formik.getFieldProps('bonus')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {bonusOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>  
-                  
-               {/* skin predetection */}
+                      <select {...formik.getFieldProps('vaccination')}
+                              class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                                    <option value="" label="choose an option" />
+                                          {vaccinationOptions.map(option => (
+                                            <option key={option.value} value={option.value}>
+                                              {option.label}
+                                            </option>
+                                       ))}
+                            </select>
+                    </div>
+                    
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">   
+                     <p class="text-white text-xs italic">If: yes how often?</p>
+                    
+                     <input {...formik.getFieldProps('repeat')} 
+                          class="appearance-none block w-full bg-gray-800 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-slate-600 focus:border-gray-900 rounded-full" 
+                          id="grid-password" type="text" placeholder='add a brief description'/>
+                    </div>
+                    
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">Do you offer this service in your complete supply area</p>                    
+                       <select {...formik.getFieldProps('supply')}
+                      class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                            <option value="" label="choose an option" />
+                                  {supplyOptions.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                        </select>
+                    </div>        
+                 </div>
+                 <div class="w-full flex flex-col">   
+                     <p class="text-white text-xs italic">If no: specify the region</p>
+                    
+                     <input {...formik.getFieldProps('regions')}  
+                          class="appearance-none block w-full bg-gray-800 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-slate-600 focus:border-gray-900 rounded-full" 
+                          id="grid-password" type="text" placeholder='add a brief description'/>
+                    </div>
 
-               <div className="name flex w-3/4 gap-10">
-                   <select {...formik.getFieldProps('prevention')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {preventionOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
+                    <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">Could extend this service with a service from your bonus program</p>                 
+                       <select {...formik.getFieldProps('bonus')}
+                              class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                                    <option value="" label="choose an option" />
+                                          {bonusOptions.map(option => (
+                                            <option key={option.value} value={option.value}>
+                                              {option.label}
+                                            </option>
+                                          ))}
+                              </select>
+                    </div>
+                    
                 </div>
 
-                  <input {...formik.getFieldProps('often')} 
-                  className={`${styles.textbox} ${extend.textbox}`} 
-                  type="text" placeholder='add a brief description' />
+                <br/>
+                skin cancer predetection
+                <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">
+                    <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
+                                    Skin Cancer predetection
+                     </label>   
+                     <p class="text-white text-xs italic">
+                      Do you perform skin cancer prevention examination 
+                           even below the legally specified age of 35</p>
+                    
+                      <select {...formik.getFieldProps('prevention')}
+                              class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                                    <option value="" label="choose an option" />
+                                          {preventionOptions.map(option => (
+                                            <option key={option.value} value={option.value}>
+                                              {option.label}
+                                            </option>
+                                       ))}
+                            </select>
+                    </div>
+                    
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">   
+                     <p class="text-white text-xs italic">If: yes how often?</p>
+                    
+                     <input {...formik.getFieldProps('often')} 
+                          class="appearance-none block w-full bg-gray-800 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-slate-600 focus:border-gray-900 rounded-full" 
+                          id="grid-password" type="text" placeholder='add a brief description'/>
+                    </div>
+                    
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">Do you offer this service in your complete supply area</p>                    
+                       <select {...formik.getFieldProps('sarea')}
+                      class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                            <option value="" label="choose an option" />
+                                  {sareaOptions.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                        </select>
+                    </div>        
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">If no: specify the region</p>                    
+                       <select {...formik.getFieldProps('sregions')}
+                      class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                            <option value="" label="choose an option" />
+                                  {sregionsOptions.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                        </select>
+                    </div>        
+                 </div>
 
-                  <select {...formik.getFieldProps('sarea')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {sareaOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-                  <select {...formik.getFieldProps('sregions')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {sregionsOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-
-                <select {...formik.getFieldProps('program')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {programOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select> 
-
-                {/* hearing aid */}
-                <span className='py-4 text-sm w-2/3 text-center text-gray-500'>
-                hearing aid
-               </span>
-              
-                <div className="name flex w-3/4 gap-10">
-                   <select {...formik.getFieldProps('hearingaid')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="hearing aid" />
-                  {hearingaidOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
+                    <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">Could extend this service with a service from your bonus program</p>                 
+                       <select {...formik.getFieldProps('program')}
+                              class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                                    <option value="" label="choose an option" />
+                                          {programOptions.map(option => (
+                                            <option key={option.value} value={option.value}>
+                                              {option.label}
+                                            </option>
+                                          ))}
+                              </select>
+                    </div>
+                    
                 </div>
 
-                  <input {...formik.getFieldProps('whichone')} 
-                  className={`${styles.textbox} ${extend.textbox}`} 
-                  type="text" placeholder='which one' />
+                {/* Hearing Aid */}
 
-                  <select {...formik.getFieldProps('harea')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {hareaOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-                  <select {...formik.getFieldProps('hregions')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {hregionsOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
+                <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">
+                    <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
+                                    Hearing Aids
+                     </label>   
+                     <p class="text-white text-xs italic">
+                      Services for hearing aids Do you provide additional services 
+                      beyond the legal framework of $33 5GB V </p>
+                    
+                      <select {...formik.getFieldProps('hearingaid')}
+                              class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                                    <option value="" label="choose an option" />
+                                          {hearingaidOptions.map(option => (
+                                            <option key={option.value} value={option.value}>
+                                              {option.label}
+                                            </option>
+                                       ))}
+                            </select>
+                    </div>
+                    
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">   
+                     <p class="text-white text-xs italic">If: yes how often?</p>
+                    
+                     <input {...formik.getFieldProps('whichone')} 
+                          class="appearance-none block w-full bg-gray-800 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-slate-600 focus:border-gray-900 rounded-full" 
+                          id="grid-password" type="text" placeholder='add a brief description'/>
+                    </div>
+                    
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">Do you offer this service in your complete supply area</p>                    
+                       <select {...formik.getFieldProps('harea')}
+                      class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                            <option value="" label="choose an option" />
+                                  {hareaOptions.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                        </select>
+                    </div>        
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">If no: specify the region</p>                    
+                       <select {...formik.getFieldProps('hregions')}
+                      class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                            <option value="" label="choose an option" />
+                                  {hregionsOptions.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                        </select>
+                    </div>        
+                 </div>
 
-                <select {...formik.getFieldProps('service')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {serviceOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select> 
-
-                {/* childbirth preparation */}
-                <span className='py-4 text-sm w-2/3 text-center text-gray-500'>
-                childbirth preparation
-               </span>
-
-                <div className="name flex w-3/4 gap-10">
-                   <select {...formik.getFieldProps('preparation')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="preparation" />
-                  {preparationOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
+                    <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">Could extend this service with a service from your bonus program</p>                 
+                       <select {...formik.getFieldProps('service')}
+                              class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                                    <option value="" label="choose an option" />
+                                          {serviceOptions.map(option => (
+                                            <option key={option.value} value={option.value}>
+                                              {option.label}
+                                            </option>
+                                          ))}
+                              </select>
+                    </div>
+                    
                 </div>
-                              {/* back here */}
-                  <input {...formik.getFieldProps('volume')} 
-                  className={`${styles.textbox} ${extend.textbox}`} 
-                  type="text" placeholder='volume in number' />
 
-                  <select {...formik.getFieldProps('carea')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose carea" />
-                  {careaOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-                  <select {...formik.getFieldProps('cregions')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {cregionsOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
+                {/* Childbirth preparation */}
 
-                <select {...formik.getFieldProps('cprogram')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {cprogramOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select> 
+                <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">
+                    <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
+                                         Childbirth preparation Course
+                     </label>   
+                     <p class="text-white text-xs italic">
+                             Do you perform skin cancer prevention examination 
+                             even below the legally specified age of 35 </p>
+                    
+                      <select {...formik.getFieldProps('preparation')}
+                              class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                                    <option value="" label="choose an option" />
+                                          {preparationOptions.map(option => (
+                                            <option key={option.value} value={option.value}>
+                                              {option.label}
+                                            </option>
+                                       ))}
+                            </select>
+                    </div>
+                    
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">   
+                     <p class="text-white text-xs italic">If: yes how often?</p>
+                    
+                     <input {...formik.getFieldProps('volume')} 
+                          class="appearance-none block w-full bg-gray-800 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-slate-600 focus:border-gray-900 rounded-full" 
+                          id="grid-password" type="text" placeholder='add a brief description'/>
+                    </div>
+                    
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">Do you offer this service in your complete supply area</p>                    
+                       <select {...formik.getFieldProps('carea')}
+                      class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                            <option value="" label="choose an option" />
+                                  {careaOptions.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                        </select>
+                    </div>        
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">If no: specify the region</p>                    
+                       <select {...formik.getFieldProps('cregions')}
+                      class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                            <option value="" label="choose an option" />
+                                  {cregionsOptions.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                        </select>
+                    </div>        
+                 </div>
 
-                {/* childbirth */}
-                <span className='py-4 text-sm w-2/3 text-center text-gray-500'>
-                childbirth
-               </span>
-
-                <div className="name flex w-3/4 gap-10">
-                   <select {...formik.getFieldProps('foundation')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="foundation" />
-                  {foundationOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
+                    <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">Could extend this service with a service from your bonus program</p>                 
+                       <select {...formik.getFieldProps('cprogram')}
+                              class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                                    <option value="" label="choose an option" />
+                                          {cprogramOptions.map(option => (
+                                            <option key={option.value} value={option.value}>
+                                              {option.label}
+                                            </option>
+                                          ))}
+                              </select>
+                    </div>
+                    
                 </div>
-                              {/* back here */}
-                  <input {...formik.getFieldProps('child')} 
-                  className={`${styles.textbox} ${extend.textbox}`} 
-                  type="text" placeholder='volume in number' />
+                          {/* childbirth */}
 
-                  <select {...formik.getFieldProps('farea')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose farea" />
-                  {fareaOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
-                  <select {...formik.getFieldProps('fregions')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {fregionsOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
+                          <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">
+                    <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
+                                    Childbirth 
+                     </label>   
+                     <p class="text-white text-xs italic">
+                             Are there offers of additional services for pregnancy and child birth beyond
+                             the legal foundations </p>
+                    
+                      <select {...formik.getFieldProps('foundation')}
+                              class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                                    <option value="" label="choose an option" />
+                                          {foundationOptions.map(option => (
+                                            <option key={option.value} value={option.value}>
+                                              {option.label}
+                                            </option>
+                                       ))}
+                            </select>
+                    </div>
+                    
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">   
+                     <p class="text-white text-xs italic">If: yes how often?</p>
+                    
+                     <input {...formik.getFieldProps('child')} 
+                          class="appearance-none block w-full bg-gray-800 text-white border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-slate-600 focus:border-gray-900 rounded-full" 
+                          id="grid-password" type="text" placeholder='add a brief description'/>
+                    </div>
+                    
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">Do you offer this service in your complete supply area</p>                    
+                       <select {...formik.getFieldProps('farea')}
+                      class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                            <option value="" label="choose an option" />
+                                  {fareaOptions.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                        </select>
+                    </div>        
+                 </div>
+                 <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">If no: specify the region</p>                    
+                       <select {...formik.getFieldProps('fregions')}
+                      class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                            <option value="" label="choose an option" />
+                                  {fregionsOptions.map(option => (
+                                    <option key={option.value} value={option.value}>
+                                      {option.label}
+                                    </option>
+                                  ))}
+                        </select>
+                    </div>        
+                 </div>
 
-                <select {...formik.getFieldProps('fprogram')}
-                   className={`${styles.textbox} ${extend.textbox}`}>
-                  <option value="" label="choose an option" />
-                  {fprogramOptions.map(option => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select> 
-
-
+                    <div class="md:flex items-center mt-8">
+                    <div class="w-full flex flex-col">  
+                     <p class="text-white text-xs italic">Could extend this service with a service from your bonus program</p>                 
+                       <select {...formik.getFieldProps('fprogram')}
+                              class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                                    <option value="" label="choose an option" />
+                                          {fprogramOptions.map(option => (
+                                            <option key={option.value} value={option.value}>
+                                              {option.label}
+                                            </option>
+                                          ))}
+                              </select>
+                    </div>
+                    
                 </div>
-              <button className={styles.btn} type='submit'>submit questionnaire</button>
-              <div className="text-center py-4">
-                <span className='text-gray-500'>come back later? <button onClick={userLogout} className='text-red-500' to="/">Logout</button></span>
-              </div>
-          </form>
-          
-          
 
+                <button className={styles.btn} type='submit'>save questionnaire</button>
+            </form>
         </div>
-     
-      </div>
     </div>
+</div>
+      </div>
+     </div>
   )
 }
 

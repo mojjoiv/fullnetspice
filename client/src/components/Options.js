@@ -1,7 +1,6 @@
 export const supplyOptions = [
     { value: 'Yes', label: 'yes' },
     { value: 'No', label: 'no' },
-    { value: 'Maybe', label: 'maybe' },
   ];
 
 //   vaccination options

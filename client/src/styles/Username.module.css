@@ -18,11 +18,11 @@
 }
 
 .btn{
-    @apply border bg-indigo-500 w-3/4 py-4 rounded-lg text-gray-50 text-xl shadow-sm text-center;
+    @apply border bg-white w-3/4 py-4 rounded-lg text-black rounded-full text-xl shadow-sm text-center;
 }
 
 .btn:hover{
-    background-color: #ff6a6a;
+    background-color: #5e5e5e;
 }
 
 input[type='file']{
