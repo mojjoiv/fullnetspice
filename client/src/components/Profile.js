@@ -7,8 +7,7 @@ import { getFormData } from './formData.js';
 import useFetch from '../hooks/fetch.hook';
 import { updateUser } from '../helper/helper';
 import { useNavigate } from 'react-router-dom';
-import Navbar from './Navbar';
-import Sidebar from './Sidebar';
+
 
 import styles from '../styles/Username.module.css';
 import extend from '../styles/Profile.module.css';
@@ -81,9 +80,9 @@ export default function Profile() {
                   
                 </div> */}
 
-      <div className='flex justify-center items-center h-screen '>
+      <div className='overflow-hidden flex justify-center items-center h-screen '>
         
-       <div class="w-full bg-gray-900 h-screen">
+       <div class="overflow-auto w-full bg-gray-900 h-screen">
         {/* <div class="bg-gradient-to-b from-blue-800 to-blue-600 h-96"></div> */}
         <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12">
         <div class="bg-gray-900 w-full shadow rounded p-8 sm:p-12 -mt-72">
@@ -157,7 +156,7 @@ export default function Profile() {
                 </div>
 
                 <br/>
-                skin cancer predetection
+                {/* skin cancer predetection */}
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                     <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
