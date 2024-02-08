@@ -102,3 +102,4 @@ export default {
 incase it doesnt work i have provided an alternative  way of connecting to mongo atlas in server.js file 
 
 ### this project has authentication  using jsonwebtoken so make sure u add this middleware after express session in your files and recover password 
+### if you are not authenticated you will see a blank page with sidebar only 
