@@ -1,4 +1,5 @@
 import express from 'express';
+import bodyParser from "body-parser";
 import cors from 'cors';
 import morgan from 'morgan';
 import connect from './database/conn.js';
@@ -7,12 +8,14 @@ import mongoose from "mongoose";
 
 
 mongoose.connect('mongodb+srv://daltonongeche:lingo98@cluster1.cvii2uq.mongodb.net/test', {
-  useNewUrlParser: true,
+  useNewUrlParser: true, 
   useUnifiedTopology: true,
   connectTimeoutMS: 30000 // Increase the timeout to 30 seconds
 });
 
 const app = express();
+
+app.use(bodyParser.json());
 
 /** middlewares */
 app.use(express.json());

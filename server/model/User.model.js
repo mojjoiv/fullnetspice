@@ -42,37 +42,7 @@ export const UserSchema = new mongoose.Schema({
   farea: { type: String},
   fregions: { type: String},
   fprogram: { type: String},
-  mobile: { type: Number },
-  address: { type: String },
   profile: { type: String },
 });
 
 export default mongoose.model("User", UserSchema);
-
-// {
-//   "vaccination":"yes as a seperate service",
-//   "often":"not often",
-//   "supply":"yes",
-//   "region":"Suna West32",
-//   "bonus":"maybe",
-//   "cancer":"no",
-//   "hften":"not often",
-//   "sarea":"no",
-//   "regions":"region A",
-//   "program":"maybe",
-//   "hearingAid":"no",
-//   "brand":"new",
-//   "completearea":"yes",
-//   "noregions":"region A",
-//   "service":"maybe",
-//   "childbirth":"yes as a seperate service",
-//   "volume":"1000",
-//   "birtharea":"yes",
-//   "bregions":"region D",
-//   "bprogram":"no",
-//   "foundation":"no",
-//   "explain":"i have this service for special conditions",
-//   "csupply":"yes",
-//   "carea":"region C",
-//   "cprogram":"maybe"
-// }

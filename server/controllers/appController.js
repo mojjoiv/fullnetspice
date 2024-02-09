@@ -27,7 +27,6 @@ export async function register(req, res) {
     // Check if the username exists
     const existingUsername = await UserModel.findOne({ username });
     console.log('Existing Username:', existingUsername);
-   
     if (existingUsername) {
       return res.status(409).send({ error: "Please use a unique username" });
     }
