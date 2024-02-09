@@ -60,8 +60,8 @@ export default function Reset() {
 
           <form className='py-20' onSubmit={formik.handleSubmit}>
               <div className="textbox flex flex-col items-center gap-6">
-                  <input {...formik.getFieldProps('password')} className={styles.textbox} type="text" placeholder='New Password' />
-                  <input {...formik.getFieldProps('confirm_pwd')} className={styles.textbox} type="text" placeholder='Repeat Password' />
+                  <input {...formik.getFieldProps('password')} className={styles.textbox} type="password" placeholder='New Password' />
+                  <input {...formik.getFieldProps('confirm_pwd')} className={styles.textbox} type="password" placeholder='Repeat Password' />
                   <button className={styles.btn} type='submit'>Reset</button>
               </div>
 
