@@ -16,11 +16,11 @@ export default function Register() {
   const [file, setFile] = useState()
 
   const formik = useFormik({
-    // initialValues : {
-    //   email: 'doyol56239@cnogs.com',
-    //   username: 'example123',
-    //   password : 'admin@123'
-    // },
+    initialValues : {
+      email: 'user@netspice.com',
+      username: 'example123',
+      password : 'user@123'
+    },
     validate : registerValidation,
     validateOnBlur: false,
     validateOnChange: false,
