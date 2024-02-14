@@ -66,9 +66,10 @@ export default function Profile() {
       <div className='overflow-hidden flex justify-center items-center h-screen '>
         <div className="overflow-auto w-full bg-gray-900 h-screen ">
           <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12 ">
-            <div className="bg-gray-900 w-full shadow rounded p-8 sm:p-12 -mt-72">
+            <div className="bg-gray-900 w-full border border-gray-900 rounded-lg shadow rounded p-8 sm:p-12 -mt-72">
               <form onSubmit={formik.handleSubmit}>
-                <div className="md:flex items-center mt-8">
+                <div className='border border-gray-300 rounded-lg'>
+                <div className="border border-white md:flex items-center mt-8">
                   <div className="w-full flex flex-col">
                     <label htmlFor="grid-password" className="block uppercase tracking-wide text-white text-xs font-bold mb-2">
                       Vaccination
@@ -86,7 +87,7 @@ export default function Profile() {
                       ))}
                     </select>
                   </div>
-                </div>
+                 </div>
                  <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">   
                      <p class="text-white text-xs italic">If: yes how often?</p>
@@ -133,11 +134,15 @@ export default function Profile() {
                               </select>
                     </div>
                     
+                 </div>
+                 <br/>
                 </div>
+                
 
-                <br/>
-                {/* skin cancer predetection */}
-                <div class="md:flex items-center mt-8">
+                 <br/>
+                 {/* skin cancer predetection */}
+                 <div className='border border-gray-300 rounded-lg'>
+                 <div class=" md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                     <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
                                     Skin Cancer predetection
@@ -212,10 +217,13 @@ export default function Profile() {
                     </div>
                     
                 </div>
-
+                <br/>
+                 </div>
+                 
+                <br/>
                 {/* Hearing Aid */}
-
-                <div class="md:flex items-center mt-8">
+                 <div className="border border-gray-300 rounded-lg">
+                <div class=" md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                     <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
                                     Hearing Aids
@@ -290,9 +298,13 @@ export default function Profile() {
                     </div>
                     
                 </div>
+                <br/>
+                </div>
+
+                <br/>
 
                 {/* Childbirth preparation */}
-
+                <div className="border border-gray-400 rounded-lg">
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                     <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
@@ -303,7 +315,7 @@ export default function Profile() {
                              even below the legally specified age of 35 </p>
                     
                       <select {...formik.getFieldProps('preparation')}
-                              class="leading-none text-gray-50 p-3 focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
+                              class="leading-none text-gray-50 p-3 w-200px focus:outline-none focus:border-blue-700 mt-4 border-0 bg-gray-800 rounded-full">
                                     <option value="" label="choose an option" />
                                           {preparationOptions.map(option => (
                                             <option key={option.value} value={option.value}>
@@ -368,9 +380,12 @@ export default function Profile() {
                     </div>
                     
                 </div>
+                <br/>
+                </div>
+                <br/>
                           {/* childbirth */}
-
-                          <div class="md:flex items-center mt-8">
+                      <div className="border border-gray-300 rounded-lg">
+                      <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                     <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
                                     Childbirth 
@@ -444,6 +459,8 @@ export default function Profile() {
                               </select>
                     </div>
                     
+                </div>
+                <br/>
                 </div>
                   <div class="bottom-0 mt-10 flex justify-center">
                 <button className={styles.btn} type='submit'>save questionnaire</button>

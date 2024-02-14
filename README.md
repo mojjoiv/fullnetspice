@@ -104,4 +104,5 @@ incase it doesnt work i have provided an alternative  way of connecting to mongo
 ### this project has authentication  using jsonwebtoken so make sure u add this middleware after express session in your files and recover password 
 ### if you are not authenticated you will see a blank page with sidebar only 
 ### future updates to reset password through email and implement OTP 
-### all functionalities now working which are register login create survey and update survey formik for asuynchronous data binding which work as a two way binding OTP working and sending to the email for resetting the password
+
+### all functionalities now working which are register login create survey and update survey formik for asuynchronous data binding which work as a two way binding OTP working and sending to the email for resetting the password, the logout button on the sidebar is working 
